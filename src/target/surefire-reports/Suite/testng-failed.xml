@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]" parallel="tests" data-provider-thread-count="2">
+  <listeners>
+    <listener class-name="test.CustomerTestLisener"/>
+  </listeners>
+  <test name="test.Test">
+    <classes>
+      <class name="test.Test">
+        <methods>
+          <include name="myTest"/>
+          <include name="myFailedTest"/>
+        </methods>
+      </class> <!-- test.Test -->
+    </classes>
+  </test> <!-- test.Test -->
+  <test name="test.Test(failed)" parallel="tests">
+    <classes>
+      <class name="test.Test">
+        <methods>
+          <include name="tearDown"/>
+          <include name="myTest" invocation-numbers="1"/>
+          <include name="testsSetUo"/>
+          <include name="myFailedTest" invocation-numbers="0 1"/>
+          <include name="profileSetUp"/>
+        </methods>
+      </class> <!-- test.Test -->
+    </classes>
+  </test> <!-- test.Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
